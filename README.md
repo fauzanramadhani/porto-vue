@@ -185,8 +185,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Portfolio**: Coming Soon!
-- **LinkedIn**: [Fauzan Ramadhani](https://www.linkedin.com/in/fauzan-ramadhani-0a4ab4247/)
-- **GitHub**: [Fauzan (Gracia) Ramadhani](https://github.com/fauzanramadhani)
+- **LinkedIn**: [Fauzan (Gracia) Ramadhani](https://www.linkedin.com/in/fauzan-ramadhani-0a4ab4247/)
+- **GitHub**: [Fauzan Ramadhani](https://github.com/fauzanramadhani)
 - **Email**: [fauzanramadhani06@gmail.com](mailto:fauzanramadhani06@gmail.com)
 
 ---
