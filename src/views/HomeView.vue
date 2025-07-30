@@ -1,10 +1,14 @@
 <template>
   <div class="main-bg">
     <div class="main-outer">
-      <div class="mb-12">
-        <ProfileHeader />
+      <div>
+        <v-row no-gutters>
+          <v-col cols="12" md="12" class="d-flex justify-center">
+            <ProfileHeader />
+          </v-col>
+        </v-row>
       </div>
-      <div class="main-sections">
+      <div>
         <v-row no-gutters>
           <v-col cols="12" md="12" class="d-flex justify-center">
             <RecentPosts />
@@ -52,14 +56,6 @@ import CertificationCard from '@/components/layout/home/card/CertificationCard.v
 .main-outer {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding-bottom: 120px;
-}
-
-.main-sections {
-  width: 100%;
+  margin: 48px auto 108px auto;
 }
 </style> 

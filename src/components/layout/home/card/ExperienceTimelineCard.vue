@@ -69,7 +69,7 @@ const experiences = [
   border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
   backdrop-filter: blur(12px);
   color: #fff;
-  padding: 24px 28px 22px 28px;
+  padding: 24px 28px 0px 28px;
   width: 100%;
   height: 350px;
   margin-bottom: 24px;
@@ -120,7 +120,6 @@ const experiences = [
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 8px;
   flex: 1 1 auto;
   overflow-y: auto;
   padding-right: 4px;

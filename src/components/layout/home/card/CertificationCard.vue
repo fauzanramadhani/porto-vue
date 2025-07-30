@@ -75,7 +75,7 @@ const certifications = [
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-height: 340px;
+  max-height: 390px;
 }
 .certification-glass-card::before {
   content: "";
@@ -118,9 +118,7 @@ const certifications = [
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 8px;
   overflow-y: auto;
-  max-height: 245px;
   padding-right: 4px;
 }
 .certification-list::-webkit-scrollbar {

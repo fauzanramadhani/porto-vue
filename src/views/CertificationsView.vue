@@ -208,11 +208,7 @@ const verifyCertificate = (verifyUrl) => {
 .main-outer {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding-bottom: 120px;
+  margin: 48px auto 108px auto;
 }
 
 .main-sections {
