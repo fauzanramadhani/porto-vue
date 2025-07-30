@@ -1,8 +1,9 @@
 <template>
-  <div class="glass post-glass-card">
+  <div class="post-glass-card">
     <div class="post-header">
       <span class="post-header-icon"><i class="fa-regular fa-newspaper"></i></span>
       <span class="post-header-title">Latest Post</span>
+      <ArrowButton to="/" title="View details" />
     </div>
     <div class="post-date">March 11, 2025</div>
     <div class="post-title">
@@ -20,7 +21,7 @@
 </template>
 
 <script setup>
-// Static placeholder data for now
+import ArrowButton from '@/assets/ArrowButton.vue'
 </script>
 
 <style scoped>
@@ -58,6 +59,7 @@
   font-size: 1.05rem;
   font-weight: 500;
   margin-bottom: 2px;
+  position: relative;
 }
 .post-header-icon {
   color: #fff;

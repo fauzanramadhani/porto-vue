@@ -1,8 +1,9 @@
 <template>
-  <div class="glass certification-glass-card">
+  <div class="certification-glass-card">
     <div class="certification-header">
       <span class="certification-header-icon"><i class="fa-regular fa-file-pdf"></i></span>
       <span class="certification-header-title">Certifications</span>
+      <ArrowButton to="/certifications" title="View more certifications" />
     </div>
     <div class="certification-list">
       <div v-for="cert in certifications" :key="cert.id" class="certification-item">
@@ -20,6 +21,8 @@
 </template>
 
 <script setup>
+import ArrowButton from '@/assets/ArrowButton.vue'
+
 const certifications = [
   {
     id: 1,
@@ -91,6 +94,7 @@ const certifications = [
   font-size: 1.05rem;
   font-weight: 500;
   margin-bottom: 2px;
+  position: relative;
 }
 .certification-header-icon {
   color: #fff;
@@ -108,6 +112,7 @@ const certifications = [
   color: #fff;
   font-weight: 500;
   font-size: 1.08rem;
+  flex: 1;
 }
 .certification-list {
   display: flex;

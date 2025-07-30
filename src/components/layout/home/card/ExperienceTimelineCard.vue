@@ -1,8 +1,9 @@
 <template>
-  <div class="glass exp-glass-card">
+  <div class="exp-glass-card">
     <div class="exp-header">
       <span class="exp-header-icon"><i class="fa-regular fa-id-badge"></i></span>
       <span class="exp-header-title">Experience</span>
+      <ArrowButton to="/about" title="View more experience" />
     </div>
     <div class="exp-list">
       <div v-for="exp in experiences" :key="exp.company" class="exp-item">
@@ -18,6 +19,8 @@
 </template>
 
 <script setup>
+import ArrowButton from '@/assets/ArrowButton.vue'
+
 const experiences = [
   {
     company: 'Cinetic Digital',
@@ -93,6 +96,7 @@ const experiences = [
   font-size: 1.05rem;
   font-weight: 500;
   margin-bottom: 2px;
+  position: relative;
 }
 .exp-header-icon {
   color: #fff;
@@ -110,6 +114,7 @@ const experiences = [
   color: #fff;
   font-weight: 500;
   font-size: 1.08rem;
+  flex: 1;
 }
 .exp-list {
   display: flex;

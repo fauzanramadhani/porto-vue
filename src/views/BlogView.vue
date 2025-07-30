@@ -162,6 +162,7 @@ const readPost = (postId) => {
   display: flex;
   flex-direction: column;
   align-items: start;
+  padding-bottom: 120px;
 }
 
 .main-sections {

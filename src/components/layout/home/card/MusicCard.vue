@@ -1,5 +1,5 @@
 <template>
-  <div class="glass music-glass-card">
+  <div class="music-glass-card">
     <div class="music-content">
       <div class="music-disc">
         <div class="disc-outer">

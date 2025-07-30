@@ -1,5 +1,5 @@
 <template>
-  <div class="glass contact-glass-card">
+  <div class="contact-glass-card">
     <div>
       <div class="contact-header">
       <span class="contact-icon">💬</span>
