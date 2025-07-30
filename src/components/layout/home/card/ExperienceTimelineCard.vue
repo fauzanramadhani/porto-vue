@@ -1,5 +1,5 @@
 <template>
-  <div class="exp-glass-card">
+  <div class="glass exp-glass-card">
     <div class="exp-header">
       <span class="exp-header-icon"><i class="fa-regular fa-id-badge"></i></span>
       <span class="exp-header-title">Experience</span>
@@ -61,7 +61,6 @@ const experiences = [
 <style scoped>
 .exp-glass-card {
   position: relative;
-  background: rgba(24, 25, 38, 0.747);
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */

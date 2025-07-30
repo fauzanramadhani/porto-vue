@@ -1,5 +1,5 @@
 <template>
-  <div class="project-glass-card">
+  <div class="glass project-glass-card">
     <div class="project-header">
       <span class="project-header-icon"><i class="fa-regular fa-file-code"></i></span>
       <span class="project-header-title">Projects</span>
@@ -72,7 +72,6 @@ const projects = [
 <style scoped>
 .project-glass-card {
   position: relative;
-  background: rgba(24, 25, 38, 0.747);
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
@@ -131,7 +130,6 @@ const projects = [
   flex-direction: column;
   gap: 12px;
   margin-bottom: 8px;
-  flex: 1 1 auto;
   overflow-y: auto;
   padding-right: 4px;
 }

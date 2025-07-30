@@ -41,7 +41,20 @@
                         class="view-project-btn"
                       >
                         View Project
-                        <i class="fas fa-external-link-alt ml-2"></i>
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke-width="1.5" 
+                          stroke="currentColor" 
+                          class="chevron-icon ms-1"
+                        >
+                          <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" 
+                          />
+                        </svg>
                       </v-btn>
                     </div>
                   </div>
@@ -283,6 +296,18 @@ const viewProject = (projectId) => {
   border-radius: 8px;
   background: rgba(0, 234, 255, 0.9);
   color: #000 !important;
+  display: flex;
+  align-items: center;
+}
+
+.chevron-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.view-project-btn:hover .chevron-icon {
+  transform: translateX(2px);
 }
 
 .project-content {

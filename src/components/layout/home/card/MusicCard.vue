@@ -1,5 +1,5 @@
 <template>
-  <div class="music-glass-card">
+  <div class="glass music-glass-card">
     <div class="music-content">
       <div class="music-disc">
         <div class="disc-outer">
@@ -34,7 +34,6 @@
 <style scoped>
 .music-glass-card {
   position: relative;
-  background: rgba(24, 25, 38, 0.747);
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1px solid rgba(255, 255, 255, 0.05);

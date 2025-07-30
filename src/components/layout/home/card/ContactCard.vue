@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-glass-card">
+  <div class="glass contact-glass-card">
     <div>
       <div class="contact-header">
       <span class="contact-icon">💬</span>
@@ -24,7 +24,6 @@
 
 <style scoped>
 .contact-glass-card {
-  background: rgba(24, 25, 38, 0.85);
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1.5px solid rgba(255,255,255,0.08);
@@ -37,6 +36,16 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+.contact-glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 16.5px;
+  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  pointer-events: none;
+  z-index: 1;
 }
 
 .contact-content {

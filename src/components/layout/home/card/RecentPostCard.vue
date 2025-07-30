@@ -1,5 +1,5 @@
 <template>
-  <div class="post-glass-card">
+  <div class="glass post-glass-card">
     <div class="post-header">
       <span class="post-header-icon"><i class="fa-regular fa-newspaper"></i></span>
       <span class="post-header-title">Latest Post</span>
@@ -26,7 +26,6 @@
 <style scoped>
 .post-glass-card {
   position: relative;
-  background: rgba(24, 25, 38, 0.747);
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */

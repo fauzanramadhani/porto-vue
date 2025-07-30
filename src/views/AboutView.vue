@@ -6,19 +6,23 @@
       </div>
       <div class="main-sections">
         <v-row no-gutters>
-          <v-col cols="12" md="8" class="d-flex justify-center">
+          <v-col cols="12" md="12" class="d-flex justify-center">
             <div class="glass about-card">
               <h2 class="section-title">About Me</h2>
               <div class="about-content">
                 <p class="about-text">
-                  I'm a passionate Web & Frontend Designer based in Madrid, with over 5 years of experience 
-                  creating beautiful and functional digital experiences. Currently working at Cinetic Digital, 
-                  I specialize in modern web technologies and user-centered design.
+                  I'm a passionate Web & Frontend Designer based in Madrid, with
+                  over 5 years of experience creating beautiful and functional
+                  digital experiences. Currently working at Cinetic Digital, I
+                  specialize in modern web technologies and user-centered
+                  design.
                 </p>
                 <p class="about-text">
-                  My journey in web development started with a curiosity about how things work on the internet. 
-                  Since then, I've worked on various projects ranging from small business websites to complex 
-                  web applications, always focusing on creating intuitive and engaging user experiences.
+                  My journey in web development started with a curiosity about
+                  how things work on the internet. Since then, I've worked on
+                  various projects ranging from small business websites to
+                  complex web applications, always focusing on creating
+                  intuitive and engaging user experiences.
                 </p>
                 <div class="skills-section">
                   <h3 class="skills-title">Skills & Technologies</h3>
@@ -59,8 +63,7 @@
                 </div>
               </div>
             </div>
-          </v-col>
-          <v-col cols="12" md="4" class="d-flex justify-center">
+            <div class="mx-2"></div>
             <div class="glass stats-card">
               <h3 class="stats-title">Quick Stats</h3>
               <div class="stats-grid">
@@ -119,9 +122,29 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
 }
 
 .about-card {
-  padding: 32px;
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 #0004;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
+  backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 24px 28px 22px 28px;
   width: 100%;
-  max-width: 600px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 16.5px;
+  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  pointer-events: none;
+  z-index: 1;
 }
 
 .section-title {
@@ -192,10 +215,20 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
 }
 
 .stats-card {
-  padding: 32px;
+  padding: 16px;
   width: 100%;
   max-width: 300px;
   height: fit-content;
+}
+
+.stats-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 16.5px;
+  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  pointer-events: none;
+  z-index: 1;
 }
 
 .stats-title {
@@ -237,19 +270,19 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   .about-card {
     padding: 24px;
   }
-  
+
   .stats-card {
     padding: 24px;
     margin-top: 20px;
   }
-  
+
   .stats-grid {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
-  
+
   .stat-number {
     font-size: 1.5rem;
   }
 }
-</style> 
+</style>
