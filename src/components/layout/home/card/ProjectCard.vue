@@ -3,6 +3,7 @@
     <div class="project-header">
       <span class="project-header-icon"><i class="fa-regular fa-file-code"></i></span>
       <span class="project-header-title">Projects</span>
+      <ArrowButton to="/projects" title="View more projects" />
     </div>
     <div class="project-list">
       <div v-for="project in projects" :key="project.title" class="project-item">
@@ -23,6 +24,8 @@
 </template>
 
 <script setup>
+import ArrowButton from '@/assets/ArrowButton.vue'
+
 const projects = [
   {
     title: 'E-Commerce Dashboard',
@@ -72,7 +75,6 @@ const projects = [
 <style scoped>
 .project-glass-card {
   position: relative;
-  background: rgba(24, 25, 38, 0.747);
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
@@ -105,6 +107,7 @@ const projects = [
   font-size: 1.05rem;
   font-weight: 500;
   margin-bottom: 2px;
+  position: relative;
 }
 
 .project-header-icon {
@@ -124,6 +127,7 @@ const projects = [
   color: #fff;
   font-weight: 500;
   font-size: 1.08rem;
+  flex: 1;
 }
 
 .project-list {
@@ -131,7 +135,6 @@ const projects = [
   flex-direction: column;
   gap: 12px;
   margin-bottom: 8px;
-  flex: 1 1 auto;
   overflow-y: auto;
   padding-right: 4px;
 }

@@ -56,6 +56,7 @@ import CertificationCard from '@/components/layout/home/card/CertificationCard.v
   display: flex;
   flex-direction: column;
   align-items: start;
+  padding-bottom: 120px;
 }
 
 .main-sections {

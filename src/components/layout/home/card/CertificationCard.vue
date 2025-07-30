@@ -3,6 +3,7 @@
     <div class="certification-header">
       <span class="certification-header-icon"><i class="fa-regular fa-file-pdf"></i></span>
       <span class="certification-header-title">Certifications</span>
+      <ArrowButton to="/certifications" title="View more certifications" />
     </div>
     <div class="certification-list">
       <div v-for="cert in certifications" :key="cert.id" class="certification-item">
@@ -20,6 +21,8 @@
 </template>
 
 <script setup>
+import ArrowButton from '@/assets/ArrowButton.vue'
+
 const certifications = [
   {
     id: 1,
@@ -61,7 +64,6 @@ const certifications = [
 
 <style scoped>
 .certification-glass-card {
-  background: rgba(24, 25, 38, 0.85);
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1.5px solid rgba(255,255,255,0.08);
@@ -75,6 +77,16 @@ const certifications = [
   gap: 10px;
   max-height: 340px;
 }
+.certification-glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 16.5px;
+  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  pointer-events: none;
+  z-index: 1;
+}
+
 .certification-header {
   display: flex;
   align-items: center;
@@ -82,6 +94,7 @@ const certifications = [
   font-size: 1.05rem;
   font-weight: 500;
   margin-bottom: 2px;
+  position: relative;
 }
 .certification-header-icon {
   color: #fff;
@@ -99,6 +112,7 @@ const certifications = [
   color: #fff;
   font-weight: 500;
   font-size: 1.08rem;
+  flex: 1;
 }
 .certification-list {
   display: flex;
@@ -106,7 +120,7 @@ const certifications = [
   gap: 12px;
   margin-bottom: 8px;
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 245px;
   padding-right: 4px;
 }
 .certification-list::-webkit-scrollbar {
@@ -120,7 +134,7 @@ const certifications = [
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 6px 0;
+  padding: 0px 0;
 }
 .certification-icon {
   font-size: 1.5rem;

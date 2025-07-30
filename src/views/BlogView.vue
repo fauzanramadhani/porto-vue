@@ -6,7 +6,7 @@
       </div>
       <div class="main-sections">
         <v-row no-gutters>
-          <v-col cols="12" md="8" class="d-flex justify-center">
+          <v-col cols="12" md="12" class="d-flex justify-center">
             <div class="glass blog-card">
               <h2 class="section-title">Latest Posts</h2>
               <div class="blog-posts">
@@ -35,8 +35,7 @@
                 </div>
               </div>
             </div>
-          </v-col>
-          <v-col cols="12" md="4" class="d-flex justify-center">
+            <div class="mx-2"></div>
             <div class="glass sidebar-card">
               <h3 class="sidebar-title">Categories</h3>
               <div class="categories-list">
@@ -163,6 +162,7 @@ const readPost = (postId) => {
   display: flex;
   flex-direction: column;
   align-items: start;
+  padding-bottom: 120px;
 }
 
 .main-sections {
@@ -170,9 +170,35 @@ const readPost = (postId) => {
 }
 
 .blog-card {
-  padding: 32px;
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 #0004;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
+  backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 24px 28px 22px 28px;
   width: 100%;
-  max-width: 700px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.blog-card {
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 #0004;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
+  backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 24px 28px 22px 28px;
+  width: 100%;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
 }
 
 .section-title {
@@ -268,6 +294,16 @@ const readPost = (postId) => {
   width: 100%;
   max-width: 300px;
   height: fit-content;
+}
+
+.sidebar-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 16.5px;
+  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  pointer-events: none;
+  z-index: 1;
 }
 
 .sidebar-title {
