@@ -184,10 +184,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Portfolio**: [Your Portfolio URL]
-- **LinkedIn**: [Your LinkedIn]
-- **GitHub**: [Your GitHub]
-- **Email**: [Your Email]
+- **Portfolio**: Coming Soon!
+- **LinkedIn**: [Your LinkedIn] (https://fontawesome.com/)
+- **GitHub**: [Your GitHub] (https://www.linkedin.com/in/fauzan-ramadhani-0a4ab4247/)
+- **Email**: [fauzanramadhani06@gmail.com](mailto:fauzanramadhani06@gmail.com)
 
 ---
 
