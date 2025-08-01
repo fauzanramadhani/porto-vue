@@ -101,13 +101,13 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
 const certifications = ref([
   {
     id: 1,
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    description: "Demonstrates expertise in designing distributed systems and implementing cloud solutions on AWS.",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-    issuedDate: "March 2024",
-    expiryDate: "March 2027",
-    credentialId: "AWS-123456789",
+    title: "MEMENANGKAN HATI KEZIA",
+    issuer: "Kezia Ramadhani",
+    description: "Perjuangan untuk menangkan hati Kezia",
+    logo: "https://images.squarespace-cdn.com/content/v1/5519ab2ee4b02a4410b6a7c6/1573572780880-TNGN7R4EX4N141SBXP50/beautiful-hands-heart-5390.jpg",
+    issuedDate: "23 June 2024",
+    expiryDate: "Endless",
+    credentialId: "LOVE-RMDHNI",
     status: "Completed",
     verifyUrl: "https://aws.amazon.com/verification"
   },

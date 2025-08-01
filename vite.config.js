@@ -9,7 +9,7 @@ import vuetify from 'vite-plugin-vuetify'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
+    // vueDevTools(),
     vuetify({
       autoImport: true,
     }),
@@ -18,5 +18,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
+  },
+  server: {
+    allowedHosts: ['.ngrok-free.app'],
   },
 })

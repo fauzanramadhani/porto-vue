@@ -7,12 +7,14 @@
     </div>
     <div class="exp-list">
       <div v-for="exp in experiences" :key="exp.company" class="exp-item">
+        <div class="exp-logo-wrapper">
         <img :src="exp.logo" :alt="exp.company" class="exp-logo" />
+        </div>
         <div class="exp-info">
           <div class="exp-company">{{ exp.company }}</div>
           <div class="exp-title">{{ exp.title }}</div>
+          <div class="exp-years">{{ exp.years }}</div>
         </div>
-        <div class="exp-years">{{ exp.years }}</div>
       </div>
     </div>
   </div>
@@ -20,53 +22,54 @@
 
 <script setup>
 import ArrowButton from '@/assets/ArrowButton.vue'
-
+const img = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Google_Favicon_2025.svg/250px-Google_Favicon_2025.svg.png';
 const experiences = [
   {
     company: 'Cinetic Digital',
     title: 'Web & Frontend Designer',
     years: '2021 — Present',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_Icon.png',
+    logo: img,
   },
   {
     company: 'Ádraba',
     title: 'Graphic Designer & Web Developer',
     years: '2018 — 2021',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_star_cluster_core.jpg',
+    logo: img,
   },
   {
     company: 'Tantra',
     title: 'Graphic Designer & Web Layout Artist',
     years: '2015 — 2019',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Blue_Square.png',
+    logo: img,
   },
   {
     company: 'TechCorp',
     title: 'Junior Frontend Developer',
     years: '2013 — 2015',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Red_Square.png',
+    logo: img,
   },
   {
     company: 'StartupHub',
     title: 'UI/UX Designer',
     years: '2012 — 2013',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Green_Square.png',
+    logo: img,
   },
   {
     company: 'Digital Agency',
     title: 'Web Design Intern',
     years: '2011 — 2012',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Yellow_Square.png',
+    logo: img,
   },
 ]
 </script>
 
 <style scoped>
+/* Card Container */
 .exp-glass-card {
   position: relative;
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
+  border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   color: #fff;
   padding: 24px 28px 0px 28px;
@@ -84,11 +87,12 @@ const experiences = [
   position: absolute;
   inset: 1.5px;
   border-radius: 16.5px;
-  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  border: 1px solid rgba(255, 255, 255, 0.07);
   pointer-events: none;
   z-index: 1;
 }
 
+/* Header */
 .exp-header {
   display: flex;
   align-items: center;
@@ -98,6 +102,7 @@ const experiences = [
   margin-bottom: 2px;
   position: relative;
 }
+
 .exp-header-icon {
   color: #fff;
   background: #23243a;
@@ -110,12 +115,15 @@ const experiences = [
   font-size: 1.1rem;
   box-shadow: 0 2px 8px #0002;
 }
+
 .exp-header-title {
   color: #fff;
   font-weight: 500;
   font-size: 1.08rem;
   flex: 1;
 }
+
+/* Content */
 .exp-list {
   display: flex;
   flex-direction: column;
@@ -124,48 +132,106 @@ const experiences = [
   overflow-y: auto;
   padding-right: 4px;
 }
+
 .exp-list::-webkit-scrollbar {
   width: 6px;
 }
+
 .exp-list::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 8px;
 }
+
+/* Items */
 .exp-item {
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 6px 0;
 }
-.exp-logo {
-  width: 36px;
-  height: 36px;
+
+.exp-logo-wrapper {
+  width: 64px;
+  height: 64px;
   border-radius: 8px;
-  object-fit: cover;
   background: #23243a;
   box-shadow: 0 2px 8px #0002;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.exp-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .exp-info {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
+
 .exp-company {
   font-weight: 700;
   font-size: 1.05rem;
   color: #fff;
 }
+
 .exp-title {
   color: #b2b8ff;
   font-size: 0.98rem;
   font-weight: 500;
 }
+
 .exp-years {
   color: #cfd8dc;
   font-size: 0.97rem;
   font-weight: 500;
-  min-width: 90px;
-  text-align: right;
+  text-align: left;
+  margin-top: 2px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 839px) {
+  .exp-glass-card {
+    height: 180px;
+  }
+  
+  .exp-list {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 16px;
+    padding-bottom: 8px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -28px;
+    margin-right: -28px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  
+  .exp-item {
+    min-width: 280px;
+    flex-shrink: 0;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .exp-list::-webkit-scrollbar {
+    height: 4px;
+    width: auto;
+  }
+  
+  .exp-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
 }
 </style> 

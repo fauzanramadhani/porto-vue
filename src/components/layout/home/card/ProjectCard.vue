@@ -73,11 +73,12 @@ const projects = [
 </script>
 
 <style scoped>
+/* Card Container */
 .project-glass-card {
   position: relative;
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
+  border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   color: #fff;
   padding: 24px 28px 0px 28px;
@@ -95,11 +96,12 @@ const projects = [
   position: absolute;
   inset: 1.5px;
   border-radius: 16.5px;
-  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  border: 1px solid rgba(255, 255, 255, 0.07);
   pointer-events: none;
   z-index: 1;
 }
 
+/* Header */
 .project-header {
   display: flex;
   align-items: center;
@@ -130,6 +132,7 @@ const projects = [
   flex: 1;
 }
 
+/* Content */
 .project-list {
   display: flex;
   flex-direction: column;
@@ -147,6 +150,7 @@ const projects = [
   border-radius: 8px;
 }
 
+/* Items */
 .project-item {
   display: flex;
   align-items: flex-start;
@@ -207,5 +211,58 @@ const projects = [
   font-size: 0.75rem;
   font-weight: 500;
   border: 1px solid rgba(178, 184, 255, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 839px) {
+  .project-list {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 16px;
+    padding-bottom: 8px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -28px;
+    margin-right: -28px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  
+  .project-item {
+    min-width: 320px;
+    flex-shrink: 0;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .project-logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+  }
+  
+  .project-info {
+    width: 100%;
+  }
+  
+  .project-technologies {
+    justify-content: flex-start;
+  }
+  
+  .project-list::-webkit-scrollbar {
+    height: 4px;
+    width: auto;
+  }
+  
+  .project-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
 }
 </style>

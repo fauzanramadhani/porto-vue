@@ -63,6 +63,7 @@ const certifications = [
 </script>
 
 <style scoped>
+/* Card Container */
 .certification-glass-card {
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
@@ -77,16 +78,18 @@ const certifications = [
   gap: 10px;
   max-height: 390px;
 }
+
 .certification-glass-card::before {
   content: "";
   position: absolute;
   inset: 1px;
   border-radius: 16.5px;
-  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  border: 1px solid rgba(255, 255, 255, 0.07);
   pointer-events: none;
   z-index: 1;
 }
 
+/* Header */
 .certification-header {
   display: flex;
   align-items: center;
@@ -96,6 +99,7 @@ const certifications = [
   margin-bottom: 2px;
   position: relative;
 }
+
 .certification-header-icon {
   color: #fff;
   background: #23243a;
@@ -108,12 +112,15 @@ const certifications = [
   font-size: 1.1rem;
   box-shadow: 0 2px 8px #0002;
 }
+
 .certification-header-title {
   color: #fff;
   font-weight: 500;
   font-size: 1.08rem;
   flex: 1;
 }
+
+/* Content */
 .certification-list {
   display: flex;
   flex-direction: column;
@@ -121,19 +128,24 @@ const certifications = [
   overflow-y: auto;
   padding-right: 4px;
 }
+
 .certification-list::-webkit-scrollbar {
   width: 6px;
 }
+
 .certification-list::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 8px;
 }
+
+/* Items */
 .certification-item {
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 0px 0;
 }
+
 .certification-icon {
   font-size: 1.5rem;
   color: #00eaff;
@@ -146,27 +158,84 @@ const certifications = [
   border-radius: 8px;
   box-shadow: 0 2px 8px #0002;
 }
+
 .certification-info {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
+
 .certification-title {
   font-weight: 700;
   font-size: 1.05rem;
   color: #fff;
 }
+
 .certification-issuer {
   color: #b2b8ff;
   font-size: 0.98rem;
   font-weight: 500;
 }
+
 .certification-date {
   color: #cfd8dc;
   font-size: 0.97rem;
   font-weight: 500;
   min-width: 90px;
   text-align: right;
+}
+
+/* Mobile Responsive */
+@media (max-width: 839px) {
+  .certification-list {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 16px;
+    padding-bottom: 8px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -28px;
+    margin-right: -28px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  
+  .certification-item {
+    min-width: 260px;
+    flex-shrink: 0;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .certification-icon {
+    margin-bottom: 8px;
+  }
+  
+  .certification-info {
+    width: 100%;
+  }
+  
+  .certification-date {
+    min-width: auto;
+    text-align: left;
+    margin-top: 4px;
+  }
+  
+  .certification-list::-webkit-scrollbar {
+    height: 4px;
+    width: auto;
+  }
+  
+  .certification-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
 }
 </style> 
