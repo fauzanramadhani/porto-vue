@@ -52,32 +52,44 @@ watch(() => route.path, (newPath) => {
 }, { immediate: true })
 
 const handleMouseEnter = (hoveredIndex) => {
-  // Animate background and gaps
-  bgScale.value = 1.05
-  currentGap.value = maxGap
+  // Check if we're on mobile (touch device)
+  const isMobile = window.innerWidth <= 600 || 'ontouchstart' in window
   
-  buttons.forEach((_, index) => {
-    const distance = Math.abs(index - hoveredIndex)
+  // Only apply zoom effects on desktop
+  if (!isMobile) {
+    // Animate background and gaps
+    bgScale.value = 1.05
+    currentGap.value = maxGap
     
-    // Enhanced scaling with more dynamic curve
-    const maxScale = 1.3
-    const minScale = 1.0
-    const falloffRate = 0.5 // More pronounced effect
-    
-    // Apply easing function for smoother transitions
-    const scale = minScale + (maxScale - minScale) * Math.pow(falloffRate, distance * 0.8)
-    
-    scales[index] = Math.max(scale, minScale)
-  })
+    buttons.forEach((_, index) => {
+      const distance = Math.abs(index - hoveredIndex)
+      
+      // Enhanced scaling with more dynamic curve
+      const maxScale = 1.3
+      const minScale = 1.0
+      const falloffRate = 0.5 // More pronounced effect
+      
+      // Apply easing function for smoother transitions
+      const scale = minScale + (maxScale - minScale) * Math.pow(falloffRate, distance * 0.8)
+      
+      scales[index] = Math.max(scale, minScale)
+    })
+  }
 }
 
 const resetScales = () => {
-  // Smoothly reset all values
-  bgScale.value = 1
-  currentGap.value = baseGap
-  scales.forEach((_, index) => {
-    scales[index] = 1
-  })
+  // Check if we're on mobile (touch device)
+  const isMobile = window.innerWidth <= 600 || 'ontouchstart' in window
+  
+  // Only reset zoom effects on desktop
+  if (!isMobile) {
+    // Smoothly reset all values
+    bgScale.value = 1
+    currentGap.value = baseGap
+    scales.forEach((_, index) => {
+      scales[index] = 1
+    })
+  }
 }
 
 const navigateTo = (routePath) => {
@@ -212,12 +224,14 @@ const navigateTo = (routePath) => {
     gap: 10px;
     bottom: 10px;
     --bg-scale: 1 !important;
+    transform: translateX(-50%) !important;
   }
   
   .nav-btn {
     font-size: 1.1rem;
     width: 36px;
     height: 36px;
+    transform: none !important;
   }
   
   .nav-btn.active::after {

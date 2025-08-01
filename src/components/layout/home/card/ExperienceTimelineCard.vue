@@ -196,7 +196,7 @@ const experiences = [
 }
 
 /* Mobile Responsive */
-@media (max-width: 839px) {
+@media (max-width: 1034px) {
   .exp-glass-card {
     height: 180px;
   }

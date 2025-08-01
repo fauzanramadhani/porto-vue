@@ -1,62 +1,26 @@
 <template>
   <div class="main-bg">
     <div class="main-outer">
-      <!-- Profile Header - Always visible -->
       <ProfileHeader />
       
-      <!-- Desktop Layout (768px and above) -->
+      <!-- Desktop Layout -->
       <div class="desktop-layout">
         <div class="row">
           <div class="glass about-card">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-              <p class="about-text">
-                I'm a passionate Web & Frontend Designer based in Madrid, with
-                over 5 years of experience creating beautiful and functional
-                digital experiences. Currently working at Cinetic Digital, I
-                specialize in modern web technologies and user-centered
-                design.
-              </p>
-              <p class="about-text">
-                My journey in web development started with a curiosity about
-                how things work on the internet. Since then, I've worked on
-                various projects ranging from small business websites to
-                complex web applications, always focusing on creating
-                intuitive and engaging user experiences.
+              <p v-for="text in aboutTexts" :key="text" class="about-text">
+                {{ text }}
               </p>
               <div class="skills-section">
                 <h3 class="skills-title">Skills & Technologies</h3>
                 <div class="skills-grid">
-                  <div class="skill-category">
-                    <h4>Frontend</h4>
+                  <div v-for="(skills, category) in skillsData" :key="category" class="skill-category">
+                    <h4>{{ category.charAt(0).toUpperCase() + category.slice(1) }}</h4>
                     <div class="skill-tags">
-                      <span class="skill-tag">Vue.js</span>
-                      <span class="skill-tag">React</span>
-                      <span class="skill-tag">JavaScript</span>
-                      <span class="skill-tag">TypeScript</span>
-                      <span class="skill-tag">HTML5</span>
-                      <span class="skill-tag">CSS3</span>
-                      <span class="skill-tag">Sass</span>
-                    </div>
-                  </div>
-                  <div class="skill-category">
-                    <h4>Design</h4>
-                    <div class="skill-tags">
-                      <span class="skill-tag">Figma</span>
-                      <span class="skill-tag">Adobe XD</span>
-                      <span class="skill-tag">Photoshop</span>
-                      <span class="skill-tag">Illustrator</span>
-                      <span class="skill-tag">UI/UX</span>
-                    </div>
-                  </div>
-                  <div class="skill-category">
-                    <h4>Tools</h4>
-                    <div class="skill-tags">
-                      <span class="skill-tag">Git</span>
-                      <span class="skill-tag">Webpack</span>
-                      <span class="skill-tag">Vite</span>
-                      <span class="skill-tag">Docker</span>
-                      <span class="skill-tag">VS Code</span>
+                      <span v-for="skill in skills" :key="skill" class="skill-tag">
+                        {{ skill }}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -67,79 +31,32 @@
           <div class="glass stats-card">
             <h3 class="stats-title">Quick Stats</h3>
             <div class="stats-grid">
-              <div class="stat-item">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Years Experience</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Projects Completed</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Happy Clients</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Technologies</div>
+              <div v-for="stat in statsData" :key="stat.label" class="stat-item">
+                <div class="stat-number">{{ stat.number }}</div>
+                <div class="stat-label">{{ stat.label }}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Mobile Layout (below 768px) -->
+      <!-- Mobile Layout -->
       <div class="mobile-layout">
         <div class="glass about-card">
           <h2 class="section-title">About Me</h2>
           <div class="about-content">
-            <p class="about-text">
-              I'm a passionate Web & Frontend Designer based in Madrid, with
-              over 5 years of experience creating beautiful and functional
-              digital experiences. Currently working at Cinetic Digital, I
-              specialize in modern web technologies and user-centered
-              design.
-            </p>
-            <p class="about-text">
-              My journey in web development started with a curiosity about
-              how things work on the internet. Since then, I've worked on
-              various projects ranging from small business websites to
-              complex web applications, always focusing on creating
-              intuitive and engaging user experiences.
+            <p v-for="text in aboutTexts" :key="text" class="about-text">
+              {{ text }}
             </p>
             <div class="skills-section">
               <h3 class="skills-title">Skills & Technologies</h3>
               <div class="skills-grid">
-                <div class="skill-category">
-                  <h4>Frontend</h4>
+                <div v-for="(skills, category) in skillsData" :key="category" class="skill-category">
+                  <h4>{{ category.charAt(0).toUpperCase() + category.slice(1) }}</h4>
                   <div class="skill-tags">
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">Sass</span>
-                  </div>
-                </div>
-                <div class="skill-category">
-                  <h4>Design</h4>
-                  <div class="skill-tags">
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">Adobe XD</span>
-                    <span class="skill-tag">Photoshop</span>
-                    <span class="skill-tag">Illustrator</span>
-                    <span class="skill-tag">UI/UX</span>
-                  </div>
-                </div>
-                <div class="skill-category">
-                  <h4>Tools</h4>
-                  <div class="skill-tags">
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Webpack</span>
-                    <span class="skill-tag">Vite</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">VS Code</span>
+                    <span v-for="skill in skills" :key="skill" class="skill-tag">
+                      {{ skill }}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -148,22 +65,15 @@
         </div>
         <div class="glass stats-card">
           <h3 class="stats-title">Quick Stats</h3>
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-number">5+</div>
-              <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">50+</div>
-              <div class="stat-label">Projects Completed</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">20+</div>
-              <div class="stat-label">Happy Clients</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">15+</div>
-              <div class="stat-label">Technologies</div>
+          <div class="mobile-stats-container">
+            <div v-for="(row, rowIndex) in mobileStatsRows" :key="rowIndex" class="mobile-stat-row">
+              <div v-for="stat in row" :key="stat.label" class="mobile-stat-item">
+                <div class="mobile-stat-icon">{{ stat.icon }}</div>
+                <div class="mobile-stat-content">
+                  <div class="mobile-stat-number">{{ stat.number }}</div>
+                  <div class="mobile-stat-label">{{ stat.label }}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -174,17 +84,42 @@
 
 <script setup>
 import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
+
+// About content data
+const aboutTexts = [
+  "I'm a passionate Web & Frontend Designer based in Madrid, with over 5 years of experience creating beautiful and functional digital experiences. Currently working at Cinetic Digital, I specialize in modern web technologies and user-centered design.",
+  "My journey in web development started with a curiosity about how things work on the internet. Since then, I've worked on various projects ranging from small business websites to complex web applications, always focusing on creating intuitive and engaging user experiences."
+];
+
+const skillsData = {
+  frontend: ['Vue.js', 'React', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Sass'],
+  design: ['Figma', 'Adobe XD', 'Photoshop', 'Illustrator', 'UI/UX'],
+  tools: ['Git', 'Webpack', 'Vite', 'Docker', 'VS Code']
+};
+
+const statsData = [
+  { number: '5+', label: 'Years Experience', icon: '📅' },
+  { number: '50+', label: 'Projects Completed', icon: '💼' },
+  { number: '20+', label: 'Happy Clients', icon: '👥' },
+  { number: '15+', label: 'Technologies', icon: '⚡' }
+];
+
+// Mobile stats organized in rows of 2
+const mobileStatsRows = [
+  [statsData[0], statsData[1]],
+  [statsData[2], statsData[3]]
+];
 </script>
 
 <style scoped>
-/* Reset */
+/* ===== RESET & BASE ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Main container */
+/* ===== LAYOUT CONTAINERS ===== */
 .main-bg {
   min-height: 100vh;
   width: 100vw;
@@ -196,15 +131,13 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   padding: 0 2rem;
 }
 
-/* Responsive container */
-@media (min-width: 1420px) {
-  .main-outer {
-    max-width: 1200px;
-    padding: 0;
-  }
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
 }
 
-/* Layout containers */
+/* ===== RESPONSIVE LAYOUT ===== */
 .desktop-layout {
   display: block;
 }
@@ -213,13 +146,6 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   display: none;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-/* Mobile layout (below 768px) */
 @media (max-width: 767px) {
   .desktop-layout {
     display: none;
@@ -234,7 +160,14 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   }
 }
 
-/* Card styles */
+@media (min-width: 1420px) {
+  .main-outer {
+    max-width: 1200px;
+    padding: 0;
+  }
+}
+
+/* ===== CARD STYLES ===== */
 .about-card {
   position: relative;
   border-radius: 18px;
@@ -261,6 +194,7 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   z-index: 1;
 }
 
+/* ===== TYPOGRAPHY ===== */
 .section-title {
   font-size: 2rem;
   font-weight: 700;
@@ -282,6 +216,7 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   margin-bottom: 16px;
 }
 
+/* ===== SKILLS SECTION ===== */
 .skills-section {
   margin-top: 16px;
 }
@@ -328,10 +263,9 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   transform: translateY(-1px);
 }
 
+/* ===== STATS CARDS ===== */
 .stats-card {
-  padding: 16px;
   width: 100%;
-  max-width: 300px;
   height: fit-content;
 }
 
@@ -380,14 +314,18 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   font-weight: 500;
 }
 
-/* Mobile responsive adjustments */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 767px) {
   .about-card {
     padding: 24px;
   }
 
-  .stats-card {
-    padding: 24px;
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .about-text {
+    font-size: 1rem;
   }
 
   .stats-grid {
@@ -398,13 +336,68 @@ import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
   .stat-number {
     font-size: 1.5rem;
   }
-  
-  .section-title {
-    font-size: 1.75rem;
+
+  /* Mobile Stats Layout */
+  .mobile-stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
-  
-  .about-text {
-    font-size: 1rem;
+
+  .mobile-stat-row {
+    display: flex;
+    gap: 12px;
+  }
+
+  .mobile-stat-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    min-height: 80px;
+    width: calc(50% - 6px);
+  }
+
+  .mobile-stat-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .mobile-stat-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 234, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 234, 255, 0.2);
+    flex-shrink: 0;
+  }
+
+  .mobile-stat-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mobile-stat-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #00eaff;
+    margin-bottom: 2px;
+  }
+
+  .mobile-stat-label {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    font-weight: 500;
+    line-height: 1.2;
   }
 }
 </style>

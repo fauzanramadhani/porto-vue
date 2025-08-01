@@ -3,7 +3,7 @@
     <div class="main-outer">
       <!-- Profile Header - Always visible -->
       <ProfileHeader />
-      
+
       <!-- Desktop Layout (840px and above) -->
       <div class="desktop-layout">
         <div class="row">
@@ -18,16 +18,16 @@
             <ContactCard class="mt-4" />
           </div>
           <div class="mx-2 gap-container"></div>
-          <CertificationCard/>
+          <CertificationCard />
         </div>
       </div>
-      
+
       <!-- Mobile Layout (below 840px) -->
       <div class="mobile-layout">
         <RecentPosts />
         <ExperienceTimeline />
         <ProjectCard />
-        <CertificationCard/>
+        <CertificationCard />
         <ContactCard />
         <MusicCard />
       </div>
@@ -88,39 +88,22 @@ import CertificationCard from '@/components/layout/home/card/CertificationCard.v
   margin-bottom: 24px;
 }
 
+.music-contact-container {
+  width: 100%;
+}
+
 /* Mobile layout (below 840px) */
-@media (max-width: 839px) {
+@media (max-width: 1034px) {
   .desktop-layout {
     display: none;
   }
-  
+
   .mobile-layout {
     display: block;
   }
-  
-  .mobile-layout > * {
+
+  .mobile-layout>* {
     margin-bottom: 24px;
   }
 }
-
-/* Music/Contact container visibility */
-@media (max-width: 1034px) {
-  .music-contact-container {
-    display: none !important;
-  }
-  
-  .gap-container {
-    display: block !important;
-  }
-}
-
-@media (min-width: 1035px) {
-  .gap-container {
-    display: none !important;
-  }
-  
-  .music-contact-container {
-    display: flex !important;
-  }
-}
-</style> 
+</style>

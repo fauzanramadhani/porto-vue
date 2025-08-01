@@ -187,7 +187,7 @@ const certifications = [
 }
 
 /* Mobile Responsive */
-@media (max-width: 839px) {
+@media (max-width: 1034px) {
   .certification-list {
     flex-direction: row;
     overflow-x: auto;
