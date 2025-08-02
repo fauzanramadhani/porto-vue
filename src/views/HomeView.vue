@@ -85,7 +85,6 @@ import CertificationCard from '@/components/layout/home/card/CertificationCard.v
 .row {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
 }
 
 .music-contact-container {

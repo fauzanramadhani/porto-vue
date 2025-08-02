@@ -1,31 +1,11 @@
 <template>
   <div class="main-bg">
     <div class="main-outer">
-      <div class="mb-12">
-        <ProfileHeader />
-      </div>
+      <ProfileHeader />
       <div class="main-sections">
         <v-row no-gutters>
           <v-col cols="12" class="d-flex justify-center">
-            <div class="glass certifications-card">
-              <h2 class="section-title">Certifications & Achievements</h2>
-              
-              <!-- Stats Summary -->
-              <div class="stats-summary">
-                <div class="stat-item">
-                  <div class="stat-number">{{ certifications.length }}</div>
-                  <div class="stat-label">Total Certifications</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number">{{ completedCertifications }}</div>
-                  <div class="stat-label">Completed</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number">{{ inProgressCertifications }}</div>
-                  <div class="stat-label">In Progress</div>
-                </div>
-              </div>
-              
+            <div class="certifications-card">
               <!-- Certifications Grid -->
               <div class="certifications-grid">
                 <div 
@@ -207,8 +187,15 @@ const verifyCertificate = (verifyUrl) => {
 
 .main-outer {
   width: 100%;
-  max-width: 1200px;
   margin: 48px auto 108px auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 1420px) {
+  .main-outer {
+    max-width: 1200px;
+    padding: 0;
+  }
 }
 
 .main-sections {
@@ -216,48 +203,8 @@ const verifyCertificate = (verifyUrl) => {
 }
 
 .certifications-card {
-  padding: 32px;
   width: 100%;
   max-width: 1200px;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 32px;
-  letter-spacing: -0.5px;
-  text-align: center;
-}
-
-.stats-summary {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  margin-bottom: 48px;
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  min-width: 120px;
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #00eaff;
-  margin-bottom: 8px;
-}
-
-.stat-label {
-  font-size: 0.9rem;
-  color: #b0b0b0;
-  font-weight: 500;
 }
 
 .certifications-grid {
@@ -404,24 +351,6 @@ const verifyCertificate = (verifyUrl) => {
 }
 
 @media (max-width: 768px) {
-  .certifications-card {
-    padding: 24px;
-  }
-  
-  .stats-summary {
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-  
-  .stat-item {
-    padding: 16px;
-    min-width: 100px;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
   .certifications-grid {
     grid-template-columns: 1fr;
     gap: 24px;

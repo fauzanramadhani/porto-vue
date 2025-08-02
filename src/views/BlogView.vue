@@ -1,69 +1,129 @@
 <template>
   <div class="main-bg">
     <div class="main-outer">
-      <div class="mb-12">
-        <ProfileHeader />
+      <ProfileHeader />
+      
+      <!-- Desktop Layout -->
+      <div class="desktop-layout">
+        <div class="blog-container">
+          <div class="blog-card">
+            <h2 class="section-title">Latest Posts</h2>
+            <div class="blog-posts">
+              <div v-for="post in blogPosts" :key="post.id" class="blog-post">
+                <div class="post-image">
+                  <img :src="post.image" :alt="post.title" />
+                  <div class="post-category">{{ post.category }}</div>
+                </div>
+                <div class="post-content">
+                  <h3 class="post-title">{{ post.title }}</h3>
+                  <p class="post-excerpt">{{ post.excerpt }}</p>
+                  <div class="post-meta">
+                    <span class="post-date">{{ post.date }}</span>
+                    <span class="post-read-time">{{ post.readTime }} min read</span>
+                  </div>
+                  <v-btn 
+                    variant="text" 
+                    color="#00eaff" 
+                    class="read-more-btn"
+                    @click="readPost(post.id)"
+                  >
+                    Read More
+                    <i class="fas fa-arrow-right ml-2"></i>
+                  </v-btn>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Categories</h3>
+            <div class="categories-list">
+              <div 
+                v-for="category in categories" 
+                :key="category.name"
+                class="category-item"
+                :class="{ active: selectedCategory === category.name }"
+                @click="selectCategory(category.name)"
+              >
+                <span class="category-name">{{ category.name }}</span>
+                <span class="category-count">{{ category.count }}</span>
+              </div>
+            </div>
+            
+            <h3 class="sidebar-title">Popular Tags</h3>
+            <div class="tags-cloud">
+              <span 
+                v-for="tag in popularTags" 
+                :key="tag.name"
+                class="tag-item"
+              >
+                {{ tag.name }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="main-sections">
-        <v-row no-gutters>
-          <v-col cols="12" md="12" class="d-flex justify-center">
-            <div class="glass blog-card">
-              <h2 class="section-title">Latest Posts</h2>
-              <div class="blog-posts">
-                <div v-for="post in blogPosts" :key="post.id" class="blog-post">
-                  <div class="post-image">
-                    <img :src="post.image" :alt="post.title" />
-                    <div class="post-category">{{ post.category }}</div>
-                  </div>
-                  <div class="post-content">
-                    <h3 class="post-title">{{ post.title }}</h3>
-                    <p class="post-excerpt">{{ post.excerpt }}</p>
-                    <div class="post-meta">
-                      <span class="post-date">{{ post.date }}</span>
-                      <span class="post-read-time">{{ post.readTime }} min read</span>
-                    </div>
-                    <v-btn 
-                      variant="text" 
-                      color="#00eaff" 
-                      class="read-more-btn"
-                      @click="readPost(post.id)"
-                    >
-                      Read More
-                      <i class="fas fa-arrow-right ml-2"></i>
-                    </v-btn>
-                  </div>
-                </div>
+
+      <!-- Mobile Layout -->
+      <div class="mobile-layout">
+        <div class="mobile-filters">
+          <div class="filter-section">
+            <h3 class="filter-title">Categories</h3>
+            <div class="mobile-categories">
+              <div 
+                v-for="category in categories" 
+                :key="category.name"
+                class="mobile-category-item"
+                :class="{ active: selectedCategory === category.name }"
+                @click="selectCategory(category.name)"
+              >
+                <span class="mobile-category-name">{{ category.name }}</span>
+                <span class="mobile-category-count">{{ category.count }}</span>
               </div>
             </div>
-            <div class="mx-2"></div>
-            <div class="glass sidebar-card">
-              <h3 class="sidebar-title">Categories</h3>
-              <div class="categories-list">
-                <div 
-                  v-for="category in categories" 
-                  :key="category.name"
-                  class="category-item"
-                  :class="{ active: selectedCategory === category.name }"
-                  @click="selectCategory(category.name)"
-                >
-                  <span class="category-name">{{ category.name }}</span>
-                  <span class="category-count">{{ category.count }}</span>
-                </div>
+          </div>
+          
+          <div class="filter-section">
+            <h3 class="filter-title">Popular Tags</h3>
+            <div class="mobile-tags">
+              <span 
+                v-for="tag in popularTags" 
+                :key="tag.name"
+                class="mobile-tag-item"
+              >
+                {{ tag.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-blog-posts">
+          <h2 class="mobile-section-title">Latest Posts</h2>
+          <div class="mobile-posts">
+            <div v-for="post in blogPosts" :key="post.id" class="mobile-blog-post">
+              <div class="mobile-post-image">
+                <img :src="post.image" :alt="post.title" />
+                <div class="mobile-post-category">{{ post.category }}</div>
               </div>
-              
-              <h3 class="sidebar-title mt-6">Popular Tags</h3>
-              <div class="tags-cloud">
-                <span 
-                  v-for="tag in popularTags" 
-                  :key="tag.name"
-                  class="tag-item"
+              <div class="mobile-post-content">
+                <h3 class="mobile-post-title">{{ post.title }}</h3>
+                <p class="mobile-post-excerpt">{{ post.excerpt }}</p>
+                <div class="mobile-post-meta">
+                  <span class="mobile-post-date">{{ post.date }}</span>
+                  <span class="mobile-post-read-time">{{ post.readTime }} min read</span>
+                </div>
+                <v-btn 
+                  variant="text" 
+                  color="#00eaff" 
+                  class="mobile-read-more-btn"
+                  @click="readPost(post.id)"
                 >
-                  {{ tag.name }}
-                </span>
+                  Read More
+                  <i class="fas fa-arrow-right ml-2"></i>
+                </v-btn>
               </div>
             </div>
-          </v-col>
-        </v-row>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -73,8 +133,10 @@
 import { ref } from 'vue';
 import ProfileHeader from '@/components/layout/home/card/ProfileHeaderCard.vue';
 
+// Reactive state
 const selectedCategory = ref('All');
 
+// Blog data
 const blogPosts = ref([
   {
     id: 1,
@@ -133,6 +195,7 @@ const popularTags = ref([
   { name: 'Web Development' }
 ]);
 
+// Methods
 const selectCategory = (category) => {
   selectedCategory.value = category;
 };
@@ -144,6 +207,7 @@ const readPost = (postId) => {
 </script>
 
 <style scoped>
+/* ===== RESET & BASE ===== */
 * {
   margin: 0;
   padding: 0;
@@ -157,44 +221,67 @@ const readPost = (postId) => {
 
 .main-outer {
   width: 100%;
-  max-width: 1200px;
   margin: 48px auto 108px auto;
+  padding: 0 2rem;
 }
 
-.main-sections {
-  width: 100%;
+@media (min-width: 1420px) {
+  .main-outer {
+    max-width: 1200px;
+    padding: 0;
+  }
+}
+
+/* ===== RESPONSIVE LAYOUT ===== */
+.desktop-layout {
+  display: block;
+}
+
+.mobile-layout {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-layout {
+    display: none;
+  }
+  
+  .mobile-layout {
+    display: block;
+  }
+  
+  .main-outer {
+    padding: 0 2rem;
+  }
+}
+
+/* ===== DESKTOP LAYOUT ===== */
+.blog-container {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
 }
 
 .blog-card {
+  flex: 1;
   position: relative;
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
+  border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   color: #fff;
-  padding: 24px 28px 22px 28px;
-  width: 100%;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 24px 28px;
   overflow: hidden;
 }
 
-.blog-card {
-  position: relative;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px 0 #0004;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Outer border */
-  backdrop-filter: blur(12px);
-  color: #fff;
-  padding: 24px 28px 22px 28px;
-  width: 100%;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow: hidden;
+.blog-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 16.5px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .section-title {
@@ -285,11 +372,17 @@ const readPost = (postId) => {
   padding: 8px 16px;
 }
 
+/* ===== SIDEBAR ===== */
 .sidebar-card {
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 #0004;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  color: #fff;
   padding: 32px;
-  width: 100%;
-  max-width: 300px;
-  height: fit-content;
+  width: 300px;
+  flex-shrink: 0;
 }
 
 .sidebar-card::before {
@@ -297,7 +390,7 @@ const readPost = (postId) => {
   position: absolute;
   inset: 1px;
   border-radius: 16.5px;
-  border: 1px solid rgba(255, 255, 255, 0.07); /* Inner border */
+  border: 1px solid rgba(255, 255, 255, 0.07);
   pointer-events: none;
   z-index: 1;
 }
@@ -313,6 +406,7 @@ const readPost = (postId) => {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 32px;
 }
 
 .category-item {
@@ -370,24 +464,182 @@ const readPost = (postId) => {
   transform: translateY(-1px);
 }
 
-@media (max-width: 768px) {
-  .blog-card {
-    padding: 24px;
-  }
-  
-  .sidebar-card {
-    padding: 24px;
-    margin-top: 20px;
-  }
-  
-  .blog-post {
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .post-image img {
-    width: 100%;
-    height: 200px;
-  }
+/* ===== MOBILE LAYOUT ===== */
+.mobile-filters {
+  margin-bottom: 32px;
+}
+
+.filter-section {
+  margin-bottom: 24px;
+}
+
+.filter-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.mobile-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mobile-category-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+.mobile-category-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.mobile-category-item.active {
+  background: rgba(0, 234, 255, 0.15);
+  border-color: rgba(0, 234, 255, 0.4);
+  color: #00eaff;
+}
+
+.mobile-category-name {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.mobile-category-count {
+  background: rgba(255, 255, 255, 0.1);
+  color: #b0b0b0;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.mobile-category-item.active .mobile-category-count {
+  background: rgba(0, 234, 255, 0.2);
+  color: #00eaff;
+}
+
+.mobile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mobile-tag-item {
+  background: rgba(0, 234, 255, 0.1);
+  color: #00eaff;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 234, 255, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.mobile-tag-item:hover {
+  background: rgba(0, 234, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.mobile-blog-posts {
+  margin-top: 32px;
+}
+
+.mobile-section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.mobile-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-blog-post {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-blog-post:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-post-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.mobile-post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-post-category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 234, 255, 0.9);
+  color: #000;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.mobile-post-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-post-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.mobile-post-excerpt {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  line-height: 1.6;
+}
+
+.mobile-post-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: #808080;
+}
+
+.mobile-read-more-btn {
+  align-self: flex-start;
+  font-weight: 500;
+  text-transform: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
 }
 </style> 

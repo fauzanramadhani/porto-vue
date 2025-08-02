@@ -6,7 +6,7 @@
       <!-- Desktop Layout -->
       <div class="desktop-layout">
         <div class="row">
-          <div class="glass about-card">
+          <div class="about-card">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
               <p v-for="text in aboutTexts" :key="text" class="about-text">
@@ -27,8 +27,29 @@
               </div>
             </div>
           </div>
-          <div class="mx-2"></div>
-          <div class="glass stats-card">
+        </div>
+        <div class="row">
+          <div class="exp-card">
+            <div class="exp-header">
+              <span class="exp-header-icon"><i class="fa-regular fa-id-badge"></i></span>
+              <span class="exp-header-title">Experience</span>
+            </div>
+            <div class="exp-list">
+              <div v-for="exp in experiences" :key="exp.company" class="exp-item">
+                <div class="exp-logo-wrapper">
+                  <img :src="exp.logo" :alt="exp.company" class="exp-logo" />
+                </div>
+                <div class="exp-info">
+                  <div class="exp-company">{{ exp.company }}</div>
+                  <div class="exp-title">{{ exp.title }}</div>
+                  <div class="exp-years">{{ exp.years }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="stats-card">
             <h3 class="stats-title">Quick Stats</h3>
             <div class="stats-grid">
               <div v-for="stat in statsData" :key="stat.label" class="stat-item">
@@ -42,7 +63,7 @@
       
       <!-- Mobile Layout -->
       <div class="mobile-layout">
-        <div class="glass about-card">
+        <div class="about-card">
           <h2 class="section-title">About Me</h2>
           <div class="about-content">
             <p v-for="text in aboutTexts" :key="text" class="about-text">
@@ -63,7 +84,25 @@
             </div>
           </div>
         </div>
-        <div class="glass stats-card">
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-header-icon"><i class="fa-regular fa-id-badge"></i></span>
+            <span class="exp-header-title">Experience</span>
+          </div>
+          <div class="exp-list">
+            <div v-for="exp in experiences" :key="exp.company" class="exp-item">
+              <div class="exp-logo-wrapper">
+                <img :src="exp.logo" :alt="exp.company" class="exp-logo" />
+              </div>
+              <div class="exp-info">
+                <div class="exp-company">{{ exp.company }}</div>
+                <div class="exp-title">{{ exp.title }}</div>
+                <div class="exp-years">{{ exp.years }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats-card">
           <h3 class="stats-title">Quick Stats</h3>
           <div class="mobile-stats-container">
             <div v-for="(row, rowIndex) in mobileStatsRows" :key="rowIndex" class="mobile-stat-row">
@@ -109,6 +148,47 @@ const mobileStatsRows = [
   [statsData[0], statsData[1]],
   [statsData[2], statsData[3]]
 ];
+
+// Experience data
+const img = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Google_Favicon_2025.svg/250px-Google_Favicon_2025.svg.png';
+const experiences = [
+  {
+    company: 'Cinetic Digital',
+    title: 'Web & Frontend Designer',
+    years: '2021 — Present',
+    logo: img,
+  },
+  {
+    company: 'Ádraba',
+    title: 'Graphic Designer & Web Developer',
+    years: '2018 — 2021',
+    logo: img,
+  },
+  {
+    company: 'Tantra',
+    title: 'Graphic Designer & Web Layout Artist',
+    years: '2015 — 2019',
+    logo: img,
+  },
+  {
+    company: 'TechCorp',
+    title: 'Junior Frontend Developer',
+    years: '2013 — 2015',
+    logo: img,
+  },
+  {
+    company: 'StartupHub',
+    title: 'UI/UX Designer',
+    years: '2012 — 2013',
+    logo: img,
+  },
+  {
+    company: 'Digital Agency',
+    title: 'Web Design Intern',
+    years: '2011 — 2012',
+    logo: img,
+  },
+];
 </script>
 
 <style scoped>
@@ -134,7 +214,6 @@ const mobileStatsRows = [
 .row {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
 }
 
 /* ===== RESPONSIVE LAYOUT ===== */
@@ -173,6 +252,7 @@ const mobileStatsRows = [
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   color: #fff;
   padding: 24px 28px 22px 28px;
@@ -263,6 +343,125 @@ const mobileStatsRows = [
   transform: translateY(-1px);
 }
 
+/* ===== EXPERIENCE CARD ===== */
+.exp-card {
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 #0004;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 24px 28px 24px 28px;
+  width: 100%;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.exp-card::before {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 16.5px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.exp-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.exp-header-icon {
+  color: #fff;
+  background: #23243a;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px #0002;
+}
+
+.exp-header-title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.08rem;
+  flex: 1;
+}
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.exp-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exp-logo-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: #23243a;
+  box-shadow: 0 2px 8px #0002;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.exp-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exp-company {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.exp-title {
+  color: #b2b8ff;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.exp-years {
+  color: #cfd8dc;
+  font-size: 0.97rem;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 2px;
+}
+
 /* ===== STATS CARDS ===== */
 .stats-card {
   width: 100%;
@@ -326,6 +525,10 @@ const mobileStatsRows = [
   
   .about-text {
     font-size: 1rem;
+  }
+
+  .exp-card {
+    padding: 24px;
   }
 
   .stats-grid {

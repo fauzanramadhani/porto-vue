@@ -37,6 +37,7 @@
   border-radius: 18px;
   box-shadow: 0 8px 32px 0 #0004;
   border: 1.5px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   color: #fff;
   padding: 24px 20px 20px 20px;

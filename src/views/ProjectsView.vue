@@ -7,7 +7,7 @@
       <div class="main-sections">
         <v-row no-gutters>
           <v-col cols="12" class="d-flex justify-center">
-            <div class="glass projects-card">
+            <div class="projects-card">
               <h2 class="section-title">My Projects</h2>
               
               <!-- Filter Buttons -->
@@ -187,8 +187,15 @@ const viewProject = (projectId) => {
 
 .main-outer {
   width: 100%;
-  max-width: 1200px;
   margin: 48px auto 108px auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 1420px) {
+  .main-outer {
+    max-width: 1200px;
+    padding: 0;
+  }
 }
 
 .main-sections {
@@ -196,7 +203,6 @@ const viewProject = (projectId) => {
 }
 
 .projects-card {
-  padding: 32px;
   width: 100%;
   max-width: 1200px;
 }
@@ -363,9 +369,6 @@ const viewProject = (projectId) => {
 }
 
 @media (max-width: 768px) {
-  .projects-card {
-    padding: 24px;
-  }
   
   .filter-buttons {
     gap: 8px;
